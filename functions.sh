@@ -6,21 +6,20 @@ ask_number() {
 }
 
 ask_operation() {
-	read -p "what kind of operation do you want? (add, subs, divide) " operation
+	read -p "what kind of operation do you want? (add, subs) " operation
 }
 
 count() {
-	ask_number
-	ask_operation
 
 	if [ $operation = "add" ]; then
 		echo "the answer is: " $((first+second))
-	elif [ $operation = subs ]; then
+	elif [ $operation = "subs" ]; then
 		echo "the answer is: " $((first-second))
-	elif [ $operation = subs ]; then 
-		echo "the answer is: " $((first/second))
 	else  ask_operation
 		  count
 	fi
 }
+
+ask_number
+ask_operation
 count
